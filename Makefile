@@ -1,11 +1,9 @@
 install:
 	poetry install
-page_loader:
-	poetry run page_loader
 lint:
-	poetry run flake8 page_loader
+	flake8 page_loader
 test:
-	poetry run pytest -vvvv
+	pytest -vvvv
 check:
 	make lint
 	make test
@@ -16,7 +14,7 @@ build:
 publish:
 	poetry publish --dry-run
 package-install:
-	python3 -m pip install dist/*.whl --force-reinstall
+	pip install dist/*.whl --force-reinstall
 bpp:
 	make build
 	make publish
